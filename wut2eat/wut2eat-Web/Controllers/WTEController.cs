@@ -17,5 +17,15 @@ namespace wut2eat_Web.Controllers
             var records = _db.tWhatToEatList.OrderBy(r => Guid.NewGuid()).FirstOrDefault();
             return View(records);
         }
+
+        /// <summary>
+        /// 列表
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult List()
+        {
+            var records = _db.tWhatToEatList.OrderBy(r => r.Id).ToList();
+            return View(records);
+        }
     }
 }
