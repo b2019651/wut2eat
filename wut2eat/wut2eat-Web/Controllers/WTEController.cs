@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using wut2eat_Web.Models;
@@ -50,6 +51,30 @@ namespace wut2eat_Web.Controllers
                 _db.tWhatToEatList.Add(record);
                 _db.SaveChanges();
             }
+            return RedirectToAction("List");
+        }
+
+        /// <summary>
+        /// 刪除
+        /// TODO: 應該弄個POST method
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ActionResult Delete(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var record = _db.tWhatToEatList.Where(r => r.Id == Id).FirstOrDefault();
+            if (record == null)
+            {
+                return HttpNotFound();
+            }
+
+            _db.tWhatToEatList.Remove(record);
+            _db.SaveChanges();
             return RedirectToAction("List");
         }
     }
