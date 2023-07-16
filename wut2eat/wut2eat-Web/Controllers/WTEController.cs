@@ -77,5 +77,26 @@ namespace wut2eat_Web.Controllers
             _db.SaveChanges();
             return RedirectToAction("List");
         }
+
+        /// <summary>
+        /// 查看
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ActionResult Details(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var record = _db.tWhatToEatList.Where(r => r.Id == Id).FirstOrDefault();
+            if (record == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(record);
+        }
     }
 }
