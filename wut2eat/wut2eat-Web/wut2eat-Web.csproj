@@ -214,6 +214,7 @@
     <Content Include="Views\WTE\List.cshtml" />
     <Content Include="Views\WTE\Create.cshtml" />
     <Content Include="Views\WTE\Details.cshtml" />
+    <Content Include="Views\WTE\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

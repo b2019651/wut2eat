@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -94,6 +95,45 @@ namespace wut2eat_Web.Controllers
             if (record == null)
             {
                 return HttpNotFound();
+            }
+
+            return View(record);
+        }
+
+        /// <summary>
+        /// 編輯
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ActionResult Edit(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var record = _db.tWhatToEatList.Where(r => r.Id == Id).FirstOrDefault();
+            if (record == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(record);
+        }
+
+        /// <summary>
+        /// [POST]編輯
+        /// </summary>
+        /// <param name="record"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Edit(tWhatToEatList record)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(record).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("List");
             }
 
             return View(record);
