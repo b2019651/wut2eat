@@ -212,6 +212,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\WTE\Index.cshtml" />
     <Content Include="Views\WTE\List.cshtml" />
+    <Content Include="Views\WTE\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

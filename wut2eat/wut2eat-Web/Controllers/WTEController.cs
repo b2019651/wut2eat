@@ -27,5 +27,30 @@ namespace wut2eat_Web.Controllers
             var records = _db.tWhatToEatList.OrderBy(r => r.Id).ToList();
             return View(records);
         }
+
+        /// <summary>
+        /// 新增項目
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// [POST]新增項目
+        /// </summary>
+        /// <param name="record"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Create(tWhatToEatList record)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.tWhatToEatList.Add(record);
+                _db.SaveChanges();
+            }
+            return RedirectToAction("List");
+        }
     }
 }
