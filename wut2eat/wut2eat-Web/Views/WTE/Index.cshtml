@@ -1,0 +1,27 @@
+﻿@model wut2eat_Web.Models.tWhatToEatList
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center mx-auto py-4">
+    <h1 class="display-4">今天吃點啥?</h1>
+    <p class="lead">中午要吃什麼啦！上班族萬年不變的微煩惱，馬上幫你解決！</p>
+</div>
+
+<hr />
+
+<div class="text-center">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">今天吃的是</h4>
+        </div>
+        <div class="card-body">
+            <h1 class="card-title pricing-card-title">@Model.Name</h1>
+            <a href="@Model.Link">查看連結</a>
+            <br />
+            @Html.ActionLink("換一個", "Index", "HelloWorld", null, new { @class = "btn btn-lg btn-primary" })
+        </div>
+    </div>
+</div>
+
+@Html.ActionLink("自定義選項", "List")
