@@ -3,6 +3,11 @@
     ViewBag.Title = "Index";
 }
 
+<script>
+    var list = '@ViewData["passData"]'.split(',');
+    var modelName = '@Model.Name';
+</script>
+
 <div class="text-center mx-auto py-4">
     <h1 class="display-4">今天吃點啥?</h1>
     <p class="lead">中午要吃什麼啦！上班族萬年不變的微煩惱，馬上幫你解決！</p>

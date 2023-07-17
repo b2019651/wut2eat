@@ -185,7 +185,10 @@
     <Content Include="Models\dbWhatToEatModel.edmx.diagram">
       <DependentUpon>dbWhatToEatModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\gsap.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\gsap.min.js" />
+    <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />

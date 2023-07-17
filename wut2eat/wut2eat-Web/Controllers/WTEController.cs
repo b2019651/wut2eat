@@ -16,8 +16,10 @@ namespace wut2eat_Web.Controllers
         // GET: WTE
         public ActionResult Index()
         {
-            var records = _db.tWhatToEatList.OrderBy(r => Guid.NewGuid()).FirstOrDefault();
-            return View(records);
+            var record = _db.tWhatToEatList.OrderBy(r => Guid.NewGuid()).FirstOrDefault();
+            var records = _db.tWhatToEatList.OrderBy(r => Guid.NewGuid()).Take(10).Select(x=>x.Name);
+            ViewData["passData"] = string.Join(",", records);
+            return View(record);
         }
 
         /// <summary>
